@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-Description: dotCMS - Brightcove API
+Bundle-SymbolicName: plugin-dotcms-brightcove
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1442595079000
+Bundle-DocURL: http://www.dotcms.com
+Bundle-Vendor: dotcms
+Import-Package: com.dotcms.repackage.com.google.common.cache;version=0
+ ,com.dotcms.repackage.com.google.gson;version=0,com.dotcms.repackage.
+ org.osgi.framework;version=0,com.dotmarketing.osgi;version=0,com.dotm
+ arketing.util;version=0,com.dotmarketing.util.json;version=0,com.dotm
+ arketing.viewtools;version=0,org.apache.velocity.tools.view;version=0
+ ,org.apache.velocity.tools.view.context;version=0,org.apache.velocity
+ .tools.view.servlet;version=0,org.apache.velocity.tools.view.tools;ve
+ rsion=0
+DynamicImport-Package: *
+Tool: Bnd-2.1.0.20130426-122213
+Export-Package: com.dotcms.brightcove;version="0.1";uses:="com.dotcms.
+ repackage.org.osgi.framework,com.dotmarketing.osgi",com.dotcms.bright
+ cove.model;version="0.1",com.dotcms.brightcove.viewtool;version="0.1"
+ ;uses:="com.dotcms.brightcove.model,org.apache.velocity.tools.view.se
+ rvlet,org.apache.velocity.tools.view.tools"
+Bundle-Name: XmlAuthtool Viewtool
+Bundle-Version: 0.1
+Bundle-Activator: com.dotcms.brightcove.Activator
+Created-By: 1.8.0_51 (Oracle Corporation)
+

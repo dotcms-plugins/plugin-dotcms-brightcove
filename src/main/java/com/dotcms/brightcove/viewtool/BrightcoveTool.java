@@ -86,8 +86,9 @@ public class BrightcoveTool implements ViewTool {
 
 
 			BrightcoveVideo bcv =fromJson(vid);
-			if(id.equals(String.valueOf(bcv.getId())));
+			if(id.equals(String.valueOf(bcv.getId()))){
 				return  bcv;
+			}
 		}
 		
 		
@@ -104,16 +105,29 @@ public class BrightcoveTool implements ViewTool {
 	}
 	
 	
-	
-	
-	private JSONObject read(String search) throws Exception {
+	public String toJson() throws Exception {
+		Gson gson = new Gson();
+		return gson.toJson(getAll());
 
-		if(UtilMethods.isSet(search)){
-			return null;
+	}
+	long refresh=0;
+	static JSONObject jsonCache=null;
+	private JSONObject read(String search) throws Exception {
+		
+		if(refresh < System.currentTimeMillis()-60*1000){
+			jsonCache=null;
+			refresh = System.currentTimeMillis();
 		}
-		else{
-			return new JSONTool().fetch("http://api.brightcove.com/services/library?command=find_all_videos&token=" + BrightcovePluginProperties.getProperty("BRIGHTCOVE_API_KEY"));
+		if(jsonCache==null){
+			
+			if(UtilMethods.isSet(search)){
+				return null;
+			}
+			else{
+				jsonCache= new JSONTool().fetch("http://api.brightcove.com/services/library?command=find_all_videos&token=" + BrightcovePluginProperties.getProperty("BRIGHTCOVE_API_KEY"));
+			}
 		}
+		return jsonCache;
 	}
 
 

@@ -1,16 +1,18 @@
-# XMLTool with Auth
+# Brightcove example plugin
 
 ## Description
-This tool reimplements the XMLTool included with dotCMS but adds the ability to use basic HTTP-AUTH and also to do a POST and pass a map of parameters as data
+This viewtool calls a remote web service at brightcove and returns a list of videos back to the user
 
 ## Usage
 ```
-viewtool: $xmlauthtool
+viewtool: $brightcove
 
-#set($data = $contents.getEmptyMap())
-#set($dummy = $data.put("var1", "here is var 1"))
-#set($dummy = $data.put("var2", "var2"))
+## get all videos
+#foreach($vid in $brightcove.all)
+  $vid.id : $vid.name
+#end
 
-#set($xml = $xmlauthtool.read("https://myxmlpost.com/postToMe.xml", "username", "password", $data))
+## get one video
+$brightcove.find("$contentlet.brightcoveVideo")
 
 ```

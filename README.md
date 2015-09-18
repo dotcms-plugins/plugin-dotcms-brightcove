@@ -7,7 +7,7 @@ This viewtool calls a remote web service at brightcove and returns a list of vid
 ```
 viewtool: $brightcove
 
-// get all videos
+## get all videos
 #foreach($vid in $brightcove.all)
   $vid.id : $vid.name
 #end

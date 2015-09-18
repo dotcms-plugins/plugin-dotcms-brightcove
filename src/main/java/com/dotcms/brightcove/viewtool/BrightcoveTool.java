@@ -14,6 +14,7 @@ import com.dotcms.repackage.com.google.common.cache.CacheLoader;
 import com.dotcms.repackage.com.google.gson.Gson;
 import com.dotmarketing.util.UtilMethods;
 import com.dotmarketing.util.json.JSONArray;
+import com.dotmarketing.util.json.JSONException;
 import com.dotmarketing.util.json.JSONObject;
 import com.dotmarketing.viewtools.JSONTool;
 
@@ -96,11 +97,13 @@ public class BrightcoveTool implements ViewTool {
 
 	}
 	
-	private BrightcoveVideo fromJson(JSONObject json){
+	private BrightcoveVideo fromJson(JSONObject json) throws JSONException{
 
 
 		Gson gson = new Gson();
 		BrightcoveVideo bcv = gson.fromJson(json.toString(), BrightcoveVideo.class);
+		bcv.setThumbnailURL(json.getString("thumbnailURL"));
+		bcv.setVideoStillURL(json.getString("videoStillURL"));
 		return bcv;
 	}
 	

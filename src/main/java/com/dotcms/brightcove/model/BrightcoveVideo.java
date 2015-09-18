@@ -19,8 +19,8 @@ public class BrightcoveVideo {
 	String linkText;
 	String[] tags;
 	String referenceId;
-	String videoStillUrl;
-	String thumbnailUrl;
+	String videoStillURL;
+	String thumbnailURL;
 	long length;
 	String economics;
 	int plays;
@@ -123,20 +123,22 @@ public class BrightcoveVideo {
 		this.referenceId = referenceId;
 	}
 
-	public String getVideoStillUrl() {
-		return videoStillUrl;
+
+
+	public String getVideoStillURL() {
+		return videoStillURL;
 	}
 
-	public void setVideoStillUrl(String videoStillUrl) {
-		this.videoStillUrl = videoStillUrl;
+	public void setVideoStillURL(String videoStillURL) {
+		this.videoStillURL = videoStillURL;
 	}
 
-	public String getThumbnailUrl() {
-		return thumbnailUrl;
+	public String getThumbnailURL() {
+		return thumbnailURL;
 	}
 
-	public void setThumbnailUrl(String thumbnailUrl) {
-		this.thumbnailUrl = thumbnailUrl;
+	public void setThumbnailURL(String thumbnailURL) {
+		this.thumbnailURL = thumbnailURL;
 	}
 
 	public long getLength() {
